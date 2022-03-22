@@ -20,8 +20,8 @@ mybatis-plus:
 
 spring.mail:
   host: smtp.163.com
-  username: sjylearn@163.com
-  password: QTIZGXMNPXFJOZBT
+  username: 邮箱用户名
+  password: smtp生成的密码
   protocol: smtp
   port: 25
   default-encoding: utf-8
