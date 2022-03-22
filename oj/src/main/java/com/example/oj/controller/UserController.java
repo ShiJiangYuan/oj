@@ -66,7 +66,8 @@ public class UserController {
     private String serverPort;
 
     // 文件存储路径
-    private String fileUploadPath = (new File("src/main/resources/static/img")).getAbsolutePath() + "\\";
+    @Value("${oj.avatar}")
+    private String fileUploadPath;
 
 
     /**
