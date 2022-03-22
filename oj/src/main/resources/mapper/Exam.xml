@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.oj.mapper.ExamMapper">
+    <select id="getRadios"  resultType="com.example.oj.entity.SingleChoice">
+        select *
+        from sys_radio
+        where id in
+        <foreach item="item" collection="radio" index="index" open="(" close=")" separator=",">
+            #{item,jdbcType=NUMERIC}
+        </foreach>
+    </select>
+    <select id="getJudges"  resultType="com.example.oj.entity.Judge">
+        select *
+        from sys_judge
+        where id in
+        <foreach item="item" collection="judge" index="index" open="(" close=")" separator=",">
+            #{item,jdbcType=NUMERIC}
+        </foreach>
+    </select>
+    <select id="getFills"  resultType="com.example.oj.entity.Fill">
+        select *
+        from sys_fill
+        where id in
+        <foreach item="item" collection="fill" index="index" open="(" close=")" separator=",">
+            #{item,jdbcType=NUMERIC}
+        </foreach>
+    </select>
+    <select id="getProgrammes"  resultType="com.example.oj.entity.Programme">
+        select *
+        from sys_programme
+        where id in
+        <foreach item="item" collection="programme" index="index" open="(" close=")" separator=",">
+            #{item,jdbcType=NUMERIC}
+        </foreach>
+    </select>
+</mapper>

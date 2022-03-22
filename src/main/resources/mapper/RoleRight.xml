@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.oj.mapper.RoleRightMapper">
+    <delete id="deleteByRightAndRole">
+        delete
+        from sys_role_right
+        where role_id = #{roleId}
+        and right_id in
+        <foreach item="item" collection="rightIds" index="index" open="(" close=")" separator=",">
+            #{item,jdbcType=NUMERIC}
+        </foreach>
+    </delete>
+    <select id="getFirstMenu" parameterType="java.lang.Integer" resultType="com.example.oj.entity.Right">
+        select *
+        from sys_right
+        where (parent is null or parent = '')
+        and id in
+        <foreach item="item" collection="rights" index="index" open="(" close=")" separator=",">
+            #{item,jdbcType=NUMERIC}
+        </foreach>
+    </select>
+    <select id="getSonMenu" parameterType="java.lang.Integer" resultType="com.example.oj.entity.Right">
+        select *
+        from sys_right
+        where parent = #{rightId}
+        and id in
+        <foreach item="item" collection="rights" index="index" open="(" close=")" separator=",">
+            #{item,jdbcType=NUMERIC}
+        </foreach>
+    </select>
+    <select id="getAllRightChildren" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select result.id
+        from
+            (select sys_right_order.id,if(find_in_set(parent, @ids) > 0, @ids := concat(@ids, ',',sys_right_order.id), 0) as isexistchild
+            from
+                (select id,parent from sys_right order by parent,id) sys_right_order,
+                (select @ids :=  #{rightId}) parameter)
+        result
+        where isexistchild != 0
+    </select>
+</mapper>
