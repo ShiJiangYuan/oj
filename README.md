@@ -10,21 +10,21 @@ http://sjyweb.top/
 
 ## 1、项目整体导入IDEA
 
-![image-20220322154237037](C:\Users\86136\AppData\Roaming\Typora\typora-user-images\image-20220322154237037.png)
+![image-20220322154237037](https://gitee.com/ShiJiangYuan/imgs/raw/master/img/image-20220322154237037.png)
 
 ## 2、构建项目
 
 ### 打开方式
 
-![image-20220322154335557](C:\Users\86136\AppData\Roaming\Typora\typora-user-images\image-20220322154335557.png)
+![image-20220322154335557](https://gitee.com/ShiJiangYuan/imgs/raw/master/img/image-20220322154335557.png)
 
 ### 将文件进行标记
 
-![image-20220322154419773](C:\Users\86136\AppData\Roaming\Typora\typora-user-images\image-20220322154419773.png)
+![image-20220322154419773](https://gitee.com/ShiJiangYuan/imgs/raw/master/img/image-20220322154419773.png)
 
 **配置SDK之类的自行配置（一般之前别的项目配置过的就不用再配置了）**
 
-### ==记得配置maven仓库（不然依赖可能下载不下来）==
+### 记得配置maven仓库（不然依赖可能下载不下来
 
 ### 项目文件的存储路径等都在yml里有对应的注释
 
@@ -32,7 +32,7 @@ http://sjyweb.top/
 
 `yarn install`报以下错误
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2020041517270719.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tpa2lraXV1,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://gitee.com/ShiJiangYuan/imgs/raw/master/img/image-20220322172048072.png)
 
 解决办法：以管理员身份运行`powershell`
 
